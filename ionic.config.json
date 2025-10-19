@@ -1,0 +1,7 @@
+{
+  "name": "miAppTabs",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
