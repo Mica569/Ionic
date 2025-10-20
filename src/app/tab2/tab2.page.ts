@@ -31,6 +31,10 @@ export class Tab2Page {
     { nombre: 'Asunción', temp: 22, descripcion: 'Parcialmente nublado' },
     { nombre: 'CDE', temp: 19, descripcion: 'Soleado' },
     { nombre: 'Boquerón', temp: 28, descripcion: 'Vientos moderados' },
+    { nombre: 'J. Augusto Saldívar', temp: 26, descripcion: 'Despejada'},
+    { nombre: 'Capiata', temp: 24, descripcion: 'Mayormente nublado'},
+    { nombre: 'San Antonio', temp: 30, descripcion: 'Soleado'},
+    { nombre: 'Fernando de la Mora', temp: 26, descripcion: 'Parcialmente nublado'},
   ];
 }
 
