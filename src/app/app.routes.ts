@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+﻿import { Routes } from '@angular/router';
 import { TabsPage } from './tabs/tabs.page';
 
 export const routes: Routes = [
@@ -41,7 +41,7 @@ export const routes: Routes = [
           },
           {
             path: 'articulo/:id',
-            loadComponent: () => import('./tab3/articulo-detalle.page').then((m) => m.ArticuloDetallePage),
+            loadComponent: () => import('@app/tab3/articulo-detalle.page').then((m) => m.ArticuloDetallePage),
           },
         ],
       },
@@ -58,3 +58,4 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
 ];
+
