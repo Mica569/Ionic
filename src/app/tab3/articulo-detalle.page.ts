@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+﻿import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
@@ -6,12 +6,13 @@ import { IonicModule } from '@ionic/angular';
 type Articulo = {
   id: number;
   titulo: string;
-  categoria: string;
+  categoria: 'FÃºtbol' | 'Motor';
   fecha: string;
   icono: string;
   imagen: string;
   resumen: string;
   contenido: string;
+  fuenteUrl?: string;
 };
 
 @Component({
@@ -44,14 +45,18 @@ type Articulo = {
           </ion-card-header>
           <ion-card-content>
             <p>{{ art.resumen }}</p>
-            <p style="margin-top: 8px;">{{ art.contenido }}</p>
+            <p style="margin-top: 8px; white-space: pre-line;">{{ art.contenido }}</p>
+            <ion-button *ngIf="art.fuenteUrl" fill="clear" color="medium" [href]="art.fuenteUrl" target="_blank" rel="noopener noreferrer">
+              Ver fuente
+              <ion-icon name="link-outline" slot="end"></ion-icon>
+            </ion-button>
           </ion-card-content>
         </ion-card>
       </ng-container>
 
       <ng-template #notFound>
         <ion-text color="medium">
-          <p>No se encontró el artículo.</p>
+          <p>No se encontrÃ³ el artÃ­culo.</p>
         </ion-text>
       </ng-template>
     </ion-content>
@@ -60,40 +65,46 @@ type Articulo = {
 export class ArticuloDetallePage {
   private articulos: Articulo[] = [
     {
-      id: 101,
-      titulo: 'Gran victoria en el clásico',
-      categoria: 'Fútbol',
-      fecha: 'Hoy',
+      id: 201,
+      titulo: 'Cerro PorteÃ±o vs. Olimpia: SÃºperclÃ¡sico decisivo',
+      categoria: 'FÃºtbol',
+      fecha: '19 Oct 2025',
       icono: 'football-outline',
       imagen: 'assets/sports/football.svg',
       resumen:
-        'El equipo local remontó en la segunda mitad y selló el triunfo con un gol decisivo en los minutos finales.',
+        'Partido de alto voltaje con cambios de dominio y chances claras para ambos equipos.',
       contenido:
-        'En un partido intenso y cargado de emociones, la defensa ajustó líneas tras el descanso y el mediocampo tomó el control del juego. El gol de la victoria llegó tras una jugada colectiva que rompió la presión rival.',
+        'El clÃ¡sico se jugÃ³ con intensidad desde el inicio. PresiÃ³n alta, duelos divididos y momentos de quiebre en las Ã¡reas. En el cierre, las variantes tÃ¡cticas inclinaron el trÃ¡mite y definieron un resultado clave para la tabla.',
+      fuenteUrl:
+        'https://www.abc.com.py/deportes/futbol/superclasico/2025/10/19/cerro-porteno-vs-olimpia-ultimo-superclasico-del-ano-en-vivo/',
     },
     {
-      id: 102,
-      titulo: 'Récord nacional en la pista',
-      categoria: 'Atletismo',
-      fecha: 'Ayer',
-      icono: 'barbell-outline',
-      imagen: 'assets/sports/athletics.svg',
+      id: 202,
+      titulo: 'Transchaco Rally: noche de campeones',
+      categoria: 'Motor',
+      fecha: '31 Oct 2025',
+      icono: 'car-sport-outline',
+      imagen: 'assets/sports/rally.svg',
       resumen:
-        'La promesa del atletismo impuso un nuevo tiempo histórico en los 400m, superando la marca anterior por dos décimas.',
+        'La ediciÃ³n 50 culminÃ³ con reconocimientos a los protagonistas histÃ³ricos y a los ganadores del aÃ±o.',
       contenido:
-        'El rendimiento fue sostenido desde la salida, con un ritmo explosivo en la curva final. La marca coloca al atleta entre los mejores del ranking regional y abre la puerta a competencias internacionales.',
+        'La ceremonia reuniÃ³ a pilotos, navegantes y equipos en un ambiente de celebraciÃ³n. Se destacaron actuaciones sÃ³lidas en etapas exigentes, con navegaciÃ³n precisa y resistencia mecÃ¡nica como factores decisivos para el podio final.',
+      fuenteUrl:
+        'https://www.abc.com.py/deportes/motor/2025/10/31/50-transchaco-rally-emotiva-noche-de-campeones/',
     },
     {
-      id: 103,
-      titulo: 'Triunfo en la final de tenis',
-      categoria: 'Tenis',
-      fecha: 'Ayer',
-      icono: 'tennisball-outline',
-      imagen: 'assets/sports/tennis.svg',
+      id: 203,
+      titulo: 'Joshua Duerksen a Invicta Racing (F2)',
+      categoria: 'Motor',
+      fecha: '22 Oct 2025',
+      icono: 'flag-outline',
+      imagen: 'assets/sports/f2.svg',
       resumen:
-        'Con un servicio impecable y gran consistencia desde el fondo, la tenista se coronó campeona en sets corridos.',
+        'El piloto paraguayo suma un capÃ­tulo importante a su trayectoria al unirse a una estructura competitiva.',
       contenido:
-        'La final se definió por pequeños detalles: alto porcentaje de primeros saques, pocos errores no forzados y control total de los puntos largos. La campeona dominó los momentos clave del partido.',
+        'El fichaje abre un panorama prometedor: desarrollo tÃ©cnico, kilometraje en circuitos clave y adaptaciÃ³n a un monoplaza de alto rendimiento. El proyecto deportivo apunta a consolidar resultados y pelear por puntos de manera constante.',
+      fuenteUrl:
+        'https://www.abc.com.py/deportes/motor/2025/10/22/joshua-duerksen-es-nuevo-piloto-de-invicta-racing-campeon-de-la-formula-2/',
     },
   ];
 
@@ -102,4 +113,5 @@ export class ArticuloDetallePage {
 
   constructor(private route: ActivatedRoute) {}
 }
+
 
