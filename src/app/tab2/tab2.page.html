@@ -1,17 +1,57 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+  <ion-toolbar color="secondary">
+    <ion-title>Clima</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+   <!-- Sección de lista de ciudades - TU DISEÑO ORIGINAL -->
+  <div class="lista-ciudades-section">
+    <h3>Ciudades de Paraguay</h3>
+    
+    <ion-list>
+      <ion-item *ngFor="let c of ciudades">
+        <ion-label>
+          <h3>{{ c.nombre }}</h3>
+          <p>{{ c.descripcion }}</p>
+        </ion-label>
+        <ion-badge slot="end" color="tertiary">{{ c.temp }}°C</ion-badge>
+      </ion-item>
+    </ion-list>
+  </div>
+  
+  <!-- Sección del mapa -->
+  <div class="mapa-section">
+    <div class="mapa-container">
+      <h3>Mapa de Temperaturas - Paraguay</h3>
+      <p class="descripcion-mapa">Haz clic en los marcadores para ver los detalles del clima por departamento</p>
+      
+      <!-- Contenedor del mapa -->
+      <div id="mapaClima" class="mapa-leaflet"></div>
+      
+      <!-- Leyenda de temperaturas -->
+      <div class="leyenda-temperaturas">
+        <div class="leyenda-item">
+          <span class="color-leyenda" style="background-color: #3498db;"></span>
+          <span>Fresco (< 20°C)</span>
+        </div>
+        <div class="leyenda-item">
+          <span class="color-leyenda" style="background-color: #2ecc71;"></span>
+          <span>Templado (20-25°C)</span>
+        </div>
+        <div class="leyenda-item">
+          <span class="color-leyenda" style="background-color: #f39c12;"></span>
+          <span>Cálido (25-30°C)</span>
+        </div>
+        <div class="leyenda-item">
+          <span class="color-leyenda" style="background-color: #e74c3c;"></span>
+          <span>Caluroso (> 30°C)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+
 </ion-content>

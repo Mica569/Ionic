@@ -41,3 +41,15 @@ ion-tab-bar ion-label {
   font-size: 16px; /* Cambiá el tamaño según quieras */
   font-weight: 600; /* opcional: para hacerlo más grueso */
 }
+
+//@import '~leaflet/dist/leaflet.css';
+
+// Corregir iconos de marcadores de Leaflet
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+  display: block;
+}
+
+.leaflet-container {
+  background: #f8f9fa;
+}
