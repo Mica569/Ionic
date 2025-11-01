@@ -2,14 +2,15 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-
 type Articulo = {
   id: number;
   titulo: string;
-  categoria: 'FÃºtbol' | 'Motor';
+  categoria: 'Fútbol' | 'Motor';
   fecha: string;
   icono: string;
-  imagen: string;
+  imagen?: string;
+  imagenPortada?: string;
+  imagenDetalle?: string;
   resumen: string;
   contenido: string;
   fuenteUrl?: string;
@@ -32,7 +33,7 @@ type Articulo = {
     <ion-content class="ion-padding">
       <ng-container *ngIf="art; else notFound">
         <ion-card>
-          <ion-img [src]="art.imagen" alt="{{ art.categoria }}"></ion-img>
+          <ion-img [src]="art.imagenDetalle || art.imagenPortada || art.imagen" alt="{{ art.categoria }}"></ion-img>
           <ion-card-header>
             <ion-card-title>{{ art.titulo }}</ion-card-title>
             <ion-card-subtitle>
@@ -46,10 +47,7 @@ type Articulo = {
           <ion-card-content>
             <p>{{ art.resumen }}</p>
             <p style="margin-top: 8px; white-space: pre-line;">{{ art.contenido }}</p>
-            <ion-button *ngIf="art.fuenteUrl" fill="clear" color="medium" [href]="art.fuenteUrl" target="_blank" rel="noopener noreferrer">
-              Ver fuente
-              <ion-icon name="link-outline" slot="end"></ion-icon>
-            </ion-button>
+
           </ion-card-content>
         </ion-card>
       </ng-container>
@@ -70,13 +68,13 @@ export class ArticuloDetallePage {
       categoria: 'FÃºtbol',
       fecha: '19 Oct 2025',
       icono: 'football-outline',
-      imagen: 'assets/sports/football.svg',
+      imagenPortada: 'assets/news/superclasico.jpg',
+      imagenDetalle: 'assets/news/superclasico.jpg',
       resumen:
         'Partido de alto voltaje con cambios de dominio y chances claras para ambos equipos.',
       contenido:
         'El clÃ¡sico se jugÃ³ con intensidad desde el inicio. PresiÃ³n alta, duelos divididos y momentos de quiebre en las Ã¡reas. En el cierre, las variantes tÃ¡cticas inclinaron el trÃ¡mite y definieron un resultado clave para la tabla.',
-      fuenteUrl:
-        'https://www.abc.com.py/deportes/futbol/superclasico/2025/10/19/cerro-porteno-vs-olimpia-ultimo-superclasico-del-ano-en-vivo/',
+ 
     },
     {
       id: 202,
@@ -84,13 +82,12 @@ export class ArticuloDetallePage {
       categoria: 'Motor',
       fecha: '31 Oct 2025',
       icono: 'car-sport-outline',
-      imagen: 'assets/sports/rally.svg',
+      imagenPortada: 'assets/news/transchaco.jpg',
+      imagenDetalle: 'assets/news/transchaco.jpg',
       resumen:
         'La ediciÃ³n 50 culminÃ³ con reconocimientos a los protagonistas histÃ³ricos y a los ganadores del aÃ±o.',
       contenido:
         'La ceremonia reuniÃ³ a pilotos, navegantes y equipos en un ambiente de celebraciÃ³n. Se destacaron actuaciones sÃ³lidas en etapas exigentes, con navegaciÃ³n precisa y resistencia mecÃ¡nica como factores decisivos para el podio final.',
-      fuenteUrl:
-        'https://www.abc.com.py/deportes/motor/2025/10/31/50-transchaco-rally-emotiva-noche-de-campeones/',
     },
     {
       id: 203,
@@ -98,13 +95,12 @@ export class ArticuloDetallePage {
       categoria: 'Motor',
       fecha: '22 Oct 2025',
       icono: 'flag-outline',
-      imagen: 'assets/sports/f2.svg',
+      imagenPortada: 'assets/news/duerksen.jpg',
+      imagenDetalle: 'assets/news/duerksen.jpg',
       resumen:
         'El piloto paraguayo suma un capÃ­tulo importante a su trayectoria al unirse a una estructura competitiva.',
       contenido:
         'El fichaje abre un panorama prometedor: desarrollo tÃ©cnico, kilometraje en circuitos clave y adaptaciÃ³n a un monoplaza de alto rendimiento. El proyecto deportivo apunta a consolidar resultados y pelear por puntos de manera constante.',
-      fuenteUrl:
-        'https://www.abc.com.py/deportes/motor/2025/10/22/joshua-duerksen-es-nuevo-piloto-de-invicta-racing-campeon-de-la-formula-2/',
     },
   ];
 
@@ -113,5 +109,9 @@ export class ArticuloDetallePage {
 
   constructor(private route: ActivatedRoute) {}
 }
+
+
+
+
 
 

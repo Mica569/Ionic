@@ -31,7 +31,7 @@ import { RouterModule } from '@angular/router';
         <ion-row>
           <ion-col size="12" sizeMd="6" sizeLg="4" *ngFor="let a of articulosFiltrados">
             <ion-card class="articulo-card" [routerLink]="['/tabs/deportes/articulo', a.id]" routerDirection="forward">
-              <ion-img [src]="a.imagen" alt="{{ a.categoria }}"></ion-img>
+              <ion-img [src]="a.imagenPortada || a.imagen" alt="{{ a.categoria }}"></ion-img>
               <ion-card-header>
                 <ion-card-title>{{ a.titulo }}</ion-card-title>
                 <ion-card-subtitle>
@@ -49,10 +49,7 @@ import { RouterModule } from '@angular/router';
                     Ver detalle
                     <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
                   </ion-button>
-                  <ion-button *ngIf="a.fuenteUrl" size="small" fill="clear" color="medium" [href]="a.fuenteUrl" target="_blank" rel="noopener noreferrer" (click)="$event.stopPropagation()">
-                    Fuente
-                    <ion-icon name="link-outline" slot="end"></ion-icon>
-                  </ion-button>
+                  
                 </div>
               </ion-card-content>
             </ion-card>
@@ -71,7 +68,7 @@ export class Tab3Page {
       categoria: 'FÃºtbol',
       fecha: '19 Oct 2025',
       icono: 'football-outline',
-      imagen: 'assets/sports/football.svg',
+      imagenPortada: 'assets/news/superclasico.jpg',
       resumen:
         'Un clÃ¡sico intenso con tramos de alta presiÃ³n y opciones claras. El resultado define posiciones en la recta final del torneo.',
       fuenteUrl:
@@ -83,7 +80,7 @@ export class Tab3Page {
       categoria: 'Motor',
       fecha: '31 Oct 2025',
       icono: 'car-sport-outline',
-      imagen: 'assets/sports/rally.svg',
+      imagenPortada: 'assets/news/transchaco.jpg',
       resumen:
         'La ediciÃ³n 50 del Transchaco celebrÃ³ a sus ganadores con emociÃ³n y homenajes a figuras histÃ³ricas del rally nacional.',
       fuenteUrl:
@@ -95,7 +92,7 @@ export class Tab3Page {
       categoria: 'Motor',
       fecha: '22 Oct 2025',
       icono: 'flag-outline',
-      imagen: 'assets/sports/f2.svg',
+      imagenPortada: 'assets/news/duerksen.jpg',
       resumen:
         'El piloto paraguayo da el salto a una escuderÃ­a con proyecciÃ³n, abriendo nuevas expectativas de cara a la prÃ³xima temporada.',
       fuenteUrl:
@@ -108,5 +105,6 @@ export class Tab3Page {
     return this.articulos.filter((a) => a.categoria === this.filtro);
   }
 }
+
 
 
