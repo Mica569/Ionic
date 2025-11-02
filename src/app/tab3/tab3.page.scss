@@ -6,20 +6,51 @@
   margin-bottom: 12px;
 }
 
+/* Tarjeta flexible para ocupar el alto completo del col */
 .articulo-card {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
   ion-img {
     height: 160px;
+    width: 100%;
     object-fit: cover;
   }
 
+  ion-card-header {
+    padding-bottom: 6px;
+  }
+
+  ion-card-title {
+    /* Limita a 2 líneas para uniformidad */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  ion-card-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  ion-card-content p {
+    /* Limita a 3 líneas el resumen */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+
   .card-actions {
+    margin-top: auto; /* Empuja acciones al fondo */
     display: flex;
     gap: 6px;
     align-items: center;
-    margin-top: 8px;
   }
 
   &:hover {
@@ -28,3 +59,15 @@
   }
 }
 
+/* Estira columnas y tarjetas para igualar altura por fila */
+ion-row {
+  align-items: stretch;
+}
+
+ion-col {
+  display: flex;
+}
+
+ion-col .articulo-card {
+  height: 100%;
+}

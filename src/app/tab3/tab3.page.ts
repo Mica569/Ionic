@@ -69,6 +69,7 @@ type ArticuloCard = {
       </ion-grid>
     </ion-content>
   `,
+  styleUrls: ['tab3.page.scss'],
 })
 export class Tab3Page {
   filtro = 'Todos';

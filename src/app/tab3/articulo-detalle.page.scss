@@ -1,0 +1,56 @@
+:host {
+  --ion-card-border-radius: 12px;
+}
+
+.detalle-articulo-card {
+  overflow: hidden; /* asegura bordes redondeados en la imagen */
+
+  ion-img {
+    height: 220px; /* reduce el alto de cabecera visual */
+    width: 100%;
+    object-fit: cover;
+  }
+
+  ion-card-header {
+    padding-bottom: 8px;
+  }
+
+  ion-card-title {
+    font-size: 1.35rem; /* más grande y legible */
+    line-height: 1.25;
+    margin-bottom: 2px;
+  }
+
+  ion-card-subtitle {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  ion-card-content {
+    font-size: 1.06rem; /* texto más grande */
+    line-height: 1.7;   /* más espaciado */
+  }
+
+  ion-card-content p + p {
+    margin-top: 12px; /* separación entre párrafos */
+  }
+
+  .resumen {
+    color: var(--ion-color-medium);
+    font-weight: 500;
+  }
+
+  .contenido {
+    white-space: pre-line; /* respeta saltos de línea del contenido */
+  }
+}
+
+/* En pantallas medianas/grandes, permite un poco más de alto de imagen */
+@media (min-width: 768px) {
+  .detalle-articulo-card ion-img {
+    height: 280px;
+  }
+}
+

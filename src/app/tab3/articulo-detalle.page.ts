@@ -21,6 +21,7 @@ type Articulo = {
   selector: 'app-articulo-detalle',
   standalone: true,
   imports: [IonicModule, CommonModule, RouterModule],
+  styleUrls: ['./articulo-detalle.page.scss'],
   template: `
     <ion-header>
       <ion-toolbar color="tertiary">
@@ -33,7 +34,7 @@ type Articulo = {
 
     <ion-content class="ion-padding">
       <ng-container *ngIf="art; else notFound">
-        <ion-card>
+        <ion-card class="detalle-articulo-card">
           <ion-img [src]="art.imagenDetalle || art.imagenPortada || art.imagen" alt="{{ art.categoria }}"></ion-img>
           <ion-card-header>
             <ion-card-title>{{ art.titulo }}</ion-card-title>
@@ -46,8 +47,8 @@ type Articulo = {
             </ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
-            <p>{{ art.resumen }}</p>
-            <p style="margin-top: 8px; white-space: pre-line;">{{ art.contenido }}</p>
+            <p class="resumen">{{ art.resumen }}</p>
+            <p class="contenido">{{ art.contenido }}</p>
 
           </ion-card-content>
         </ion-card>
