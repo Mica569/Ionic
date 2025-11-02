@@ -1,0 +1,23 @@
+.articulo-card {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  ion-card-header {
+    padding-bottom: 8px;
+  }
+
+  ion-card-subtitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  ion-card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
