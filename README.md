@@ -1,19 +1,19 @@
-# miAppTabs – Ionic Angular (Tabs + Noticias, Clima, Deportes, Cuenta)
+# Noticias – Ionic/Angular
 
 Aplicación móvil/web hecha con Ionic + Angular usando componentes standalone. Presenta tres pestañas principales (Home, Clima, Deportes) y una pestaña opcional de Cuenta con registro/ingreso local.
 
 ## Características
 - Home (Noticias)
-  - Lista simple de noticias con navegación a detalle.
+  - Lista de noticias con navegación a detalle.
 - Clima
   - Mapa de Paraguay con capas y marcadores (Leaflet cargado dinámicamente).
   - Lista de ciudades/temperaturas a modo de ejemplo.
 - Deportes
-  - Grid de tarjetas con imágenes de portada; alturas unificadas por fila.
-  - Detalle con imagen de cabecera reducida y texto más legible (título y cuerpo con mejor tipografía/espaciado).
-  - Contenido de noticias y nuevas entradas de ejemplo con imágenes en `src/assets/news/`.
+  - Grid de tarjetas con imágenes de portada.
+  - Detalle con imagen de cabecera.
+  - Contenido de noticias.
 - Cuenta (opcional)
-  - Registro/inicio de sesión local (sin backend) usando `localStorage` y hash SHA‑256.
+  - Registro/inicio de sesión local.
   - No protege el contenido; el uso de la app es posible sin registrarse.
 
 ## Tecnologías
@@ -24,13 +24,6 @@ Aplicación móvil/web hecha con Ionic + Angular usando componentes standalone. 
 ## Requisitos
 - Node.js 18+
 - Ionic CLI (recomendado): `npm i -g @ionic/cli`
-
-## Ejecución
-```
-npm install
-ionic serve
-```
-La app se sirve en desarrollo; las rutas se resuelven por el router de Angular.
 
 ## Rutas principales
 - `/tabs/home` — Inicio (noticias)
@@ -53,19 +46,4 @@ La app se sirve en desarrollo; las rutas se resuelven por el router de Angular.
 - Cuenta (auth local): `src/app/auth/`
 - Rutas raíz: `src/app/app.routes.ts`, `src/app/tabs/tabs.routes.ts`
 
-## Añadir/editar noticias deportivas
-- Lista de tarjetas: editar el arreglo `articulos` en `src/app/tab3/tab3.page.ts`.
-- Contenido del detalle: editar `src/app/tab3/articulo-detalle.page.ts`.
-- Imágenes: colocar en `src/assets/news/` y referenciar (ej.: `assets/news/superclasico.jpg`).
-
-## Notas sobre autenticación
-- Implementación de ejemplo 100% local (sin backend): no usar en producción.
-- El servicio se encuentra en `src/app/auth/auth.service.ts`.
-- Para proteger rutas reales, agregar guards o integrar un backend/tokens.
-
-## Convenciones de commit
-Se usa estilo tipo Conventional Commits (feat, fix, docs, style, refactor, test, chore, perf).
-
-## Licencia
-Ver `LICENSE` en la raíz del repositorio.
 
