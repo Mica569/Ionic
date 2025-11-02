@@ -1,8 +1,20 @@
-﻿import { Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+
+type ArticuloCard = {
+  id: number;
+  titulo: string;
+  categoria: 'Fútbol' | 'Motor';
+  fecha: string;
+  icono: string;
+  imagen?: string;
+  imagenPortada?: string;
+  resumen: string;
+  fuenteUrl?: string;
+};
 
 @Component({
   selector: 'app-tab3',
@@ -19,8 +31,8 @@ import { RouterModule } from '@angular/router';
         <ion-segment-button value="Todos">
           <ion-label>Todos</ion-label>
         </ion-segment-button>
-        <ion-segment-button value="FÃºtbol">
-          <ion-label>FÃºtbol</ion-label>
+        <ion-segment-button value="Fútbol">
+          <ion-label>Fútbol</ion-label>
         </ion-segment-button>
         <ion-segment-button value="Motor">
           <ion-label>Motor</ion-label>
@@ -49,7 +61,6 @@ import { RouterModule } from '@angular/router';
                     Ver detalle
                     <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
                   </ion-button>
-                  
                 </div>
               </ion-card-content>
             </ion-card>
@@ -61,16 +72,16 @@ import { RouterModule } from '@angular/router';
 })
 export class Tab3Page {
   filtro = 'Todos';
-  articulos = [
+  articulos: ArticuloCard[] = [
     {
       id: 201,
-      titulo: 'Cerro PorteÃ±o vs. Olimpia: SÃºperclÃ¡sico decisivo',
-      categoria: 'FÃºtbol',
+      titulo: 'Cerro Porteño vs Olimpia: Empate en el Súperclásico',
+      categoria: 'Fútbol',
       fecha: '19 Oct 2025',
       icono: 'football-outline',
       imagenPortada: 'assets/news/superclasico.jpg',
       resumen:
-        'Un clÃ¡sico intenso con tramos de alta presiÃ³n y opciones claras. El resultado define posiciones en la recta final del torneo.',
+        'Un clásico intenso con tramos de alta presión y opciones claras. El resultado define posiciones en la recta final del torneo.',
       fuenteUrl:
         'https://www.abc.com.py/deportes/futbol/superclasico/2025/10/19/cerro-porteno-vs-olimpia-ultimo-superclasico-del-ano-en-vivo/',
     },
@@ -82,7 +93,7 @@ export class Tab3Page {
       icono: 'car-sport-outline',
       imagenPortada: 'assets/news/transchaco.jpg',
       resumen:
-        'La ediciÃ³n 50 del Transchaco celebrÃ³ a sus ganadores con emociÃ³n y homenajes a figuras histÃ³ricas del rally nacional.',
+        'La edición 50 del Transchaco celebró a sus ganadores con emoción y homenajes a figuras históricas del rally nacional.',
       fuenteUrl:
         'https://www.abc.com.py/deportes/motor/2025/10/31/50-transchaco-rally-emotiva-noche-de-campeones/',
     },
@@ -94,7 +105,7 @@ export class Tab3Page {
       icono: 'flag-outline',
       imagenPortada: 'assets/news/duerksen.jpg',
       resumen:
-        'El piloto paraguayo da el salto a una escuderÃ­a con proyecciÃ³n, abriendo nuevas expectativas de cara a la prÃ³xima temporada.',
+        'El piloto paraguayo da el salto a una escudería con proyección, abriendo nuevas expectativas de cara a la próxima temporada.',
       fuenteUrl:
         'https://www.abc.com.py/deportes/motor/2025/10/22/joshua-duerksen-es-nuevo-piloto-de-invicta-racing-campeon-de-la-formula-2/',
     },
@@ -105,6 +116,4 @@ export class Tab3Page {
     return this.articulos.filter((a) => a.categoria === this.filtro);
   }
 }
-
-
 

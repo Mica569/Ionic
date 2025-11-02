@@ -48,13 +48,8 @@ export class Tab2Page implements AfterViewInit {
 
   private async cargarLeaflet() {
     // Cargar Leaflet solo cuando sea necesario
-    try {
-      const leaflet = await import('leaflet');
-      const L = (leaflet as any).default ?? (leaflet as any);
-      (window as any).L = L;
-    } catch (e) {
-      console.error('No se pudo cargar Leaflet', e);
-    }
+    const leaflet = await import('leaflet');
+    (window as any).L = leaflet.default;
   }
 
   private inicializarMapa() {

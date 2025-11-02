@@ -1,7 +1,8 @@
-﻿import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+
 type Articulo = {
   id: number;
   titulo: string;
@@ -54,7 +55,7 @@ type Articulo = {
 
       <ng-template #notFound>
         <ion-text color="medium">
-          <p>No se encontrÃ³ el artÃ­culo.</p>
+          <p>No se encontró el artículo.</p>
         </ion-text>
       </ng-template>
     </ion-content>
@@ -64,8 +65,8 @@ export class ArticuloDetallePage {
   private articulos: Articulo[] = [
     {
       id: 201,
-      titulo: 'Cerro PorteÃ±o vs. Olimpia: SÃºperclÃ¡sico decisivo',
-      categoria: 'FÃºtbol',
+      titulo: 'Cerro Porteño vs. Olimpia: Empate en el Súperclásico',
+      categoria: 'Fútbol',
       fecha: '19 Oct 2025',
       icono: 'football-outline',
       imagenPortada: 'assets/news/superclasico.jpg',
@@ -73,8 +74,8 @@ export class ArticuloDetallePage {
       resumen:
         'Partido de alto voltaje con cambios de dominio y chances claras para ambos equipos.',
       contenido:
-        'El clÃ¡sico se jugÃ³ con intensidad desde el inicio. PresiÃ³n alta, duelos divididos y momentos de quiebre en las Ã¡reas. En el cierre, las variantes tÃ¡cticas inclinaron el trÃ¡mite y definieron un resultado clave para la tabla.',
- 
+        'El clásico se jugó con intensidad desde el inicio. Presión alta, duelos divididos y momentos de quiebre en las áreas. En el cierre, las variantes tácticas inclinaron el trámite y definieron un resultado clave para la tabla. Para el Ciclón de Jorge Bava, el empate en el superclásico resultó un golpe. Tras la victoria de Guaraní (que remontó para vencer 2-1 a Recoleta y estirar a 4 puntos su ventaja), el punto sumado en La Nueva Olla no le sirve mucho a Cerro Porteño, que ve cómo la distancia en la lucha por el título ahora es de tres puntos. El equipo azulgrana no pudo cortar su racha negativa ante el archirrival jugando en La Nueva Olla, que se extiende a 9 partidos (cuatro derrotas y cinco empates), ante un rival que jugó con inferioridad numérica desde la media hora. En la vereda de enfrente, el Decano de Éver Hugo Almeida consiguió un resultado valioso en un escenario adverso. Olimpia, jugando con diez, desde el minuto 33, cumplió su meta principal: asegurar un punto clave para seguir blindando su posición continental. Actualmente escala al quinto lugar con 53 puntos, desplazando a Nacional sacando un mínimo margen sobre sus perseguidores. Si bien Recoleta (51), 2 de Mayo (47) y Sportivo Ameliano (44) siguen acechando, el Decano sumó para consolidar su presencia en la próxima Copa Sudamericana.',
+
     },
     {
       id: 202,
@@ -85,9 +86,10 @@ export class ArticuloDetallePage {
       imagenPortada: 'assets/news/transchaco.jpg',
       imagenDetalle: 'assets/news/transchaco.jpg',
       resumen:
-        'La ediciÃ³n 50 culminÃ³ con reconocimientos a los protagonistas histÃ³ricos y a los ganadores del aÃ±o.',
+        'La edición 50 culminó con reconocimientos a los protagonistas históricos y a los ganadores del año.',
       contenido:
-        'La ceremonia reuniÃ³ a pilotos, navegantes y equipos en un ambiente de celebraciÃ³n. Se destacaron actuaciones sÃ³lidas en etapas exigentes, con navegaciÃ³n precisa y resistencia mecÃ¡nica como factores decisivos para el podio final.',
+        'La ceremonia reunió a pilotos, navegantes y equipos en un ambiente de celebración. Se destacaron actuaciones sólidas en etapas exigentes, con navegación precisa y resistencia mecánica como factores decisivos para el podio final. En lo que sin lugar a dudas fue una emotiva noche de campeones, con el colorido acorde al cierre de una edición especial del Petrobras Transchaco Rally, la #50, tanto los ganadores de la competencia que se desarrolló en la región Occidental el pasado fin de semana, como los mejores del Campeonato Nacional de Rally (CNR), fueron galardonados este viernes en el Autódromo Víctor Rubén Dumot, de Capiatá.',
+ 
     },
     {
       id: 203,
@@ -98,9 +100,9 @@ export class ArticuloDetallePage {
       imagenPortada: 'assets/news/duerksen.jpg',
       imagenDetalle: 'assets/news/duerksen.jpg',
       resumen:
-        'El piloto paraguayo suma un capÃ­tulo importante a su trayectoria al unirse a una estructura competitiva.',
+        'El piloto paraguayo suma un capítulo importante a su trayectoria al unirse a una estructura competitiva.',
       contenido:
-        'El fichaje abre un panorama prometedor: desarrollo tÃ©cnico, kilometraje en circuitos clave y adaptaciÃ³n a un monoplaza de alto rendimiento. El proyecto deportivo apunta a consolidar resultados y pelear por puntos de manera constante.',
+        'El fichaje abre un panorama prometedor: desarrollo técnico, kilometraje en circuitos clave y adaptación a un monoplaza de alto rendimiento. El proyecto deportivo apunta a consolidar resultados y pelear por puntos de manera constante. Joshua Duerksen atraviesa la segunda temporada con el equipo alemán. En la primera, fue décimo con 87 puntos después de catorce carreras, ganando la sprint en Azerbaiyán y la principal en Emiratos Árabes Unidos. En la actual y a falta de dos fechas para finalizar la competencia, es duodécimo con 66, con un triunfo en Australia y otros podios en Spielberg, Monza y Bakú.',
     },
   ];
 
@@ -109,9 +111,4 @@ export class ArticuloDetallePage {
 
   constructor(private route: ActivatedRoute) {}
 }
-
-
-
-
-
 
