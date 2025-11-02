@@ -5,7 +5,7 @@ import { RouterOutlet, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-tabs',
   standalone: true,
-  imports: [IonicModule, RouterOutlet, RouterLink],
+  imports: [IonicModule, RouterLink],
   templateUrl: './tabs.page.html',
   styleUrls: ['./tabs.page.scss'],
 })

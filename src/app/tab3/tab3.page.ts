@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 type ArticuloCard = {
   id: number;
   titulo: string;
-  categoria: 'Fútbol' | 'Motor';
+  categoria: 'Futbol' | 'Motor';
   fecha: string;
   icono: string;
   imagen?: string;
@@ -31,8 +31,8 @@ type ArticuloCard = {
         <ion-segment-button value="Todos">
           <ion-label>Todos</ion-label>
         </ion-segment-button>
-        <ion-segment-button value="Fútbol">
-          <ion-label>Fútbol</ion-label>
+        <ion-segment-button value="Futbol">
+          <ion-label>Futbol</ion-label>
         </ion-segment-button>
         <ion-segment-button value="Motor">
           <ion-label>Motor</ion-label>
@@ -77,7 +77,7 @@ export class Tab3Page {
     {
       id: 201,
       titulo: 'Cerro Porteño vs Olimpia: Empate en el Súperclásico',
-      categoria: 'Fútbol',
+      categoria: 'Futbol',
       fecha: '19 Oct 2025',
       icono: 'football-outline',
       imagenPortada: 'assets/news/superclasico.jpg',
@@ -109,6 +109,42 @@ export class Tab3Page {
         'El piloto paraguayo da el salto a una escudería con proyección, abriendo nuevas expectativas de cara a la próxima temporada.',
       fuenteUrl:
         'https://www.abc.com.py/deportes/motor/2025/10/22/joshua-duerksen-es-nuevo-piloto-de-invicta-racing-campeon-de-la-formula-2/',
+    },
+    {
+      id: 204,
+      titulo: 'TCR50: Gustavo Saba Rodríguez, un largo camino recorrido',
+      categoria: 'Motor',
+      fecha: '27 Oct 2025',
+      icono: 'car-sport-outline',
+      imagenPortada: 'assets/news/piloto.jpg',
+      resumen:
+        'El múltiple campeón nacional repasó su trayectoria y el significado del TCR50, una cita histórica para el automovilismo local.',
+      fuenteUrl:
+        'https://www.abc.com.py/deportes/motor/2025/10/27/tcr50-gustavo-saba-rodriguez-un-largo-camino-recorrido/',
+    },
+    {
+      id: 205,
+      titulo: 'El campeón de la Sudamericana ganará 6,5 millones de dólares',
+      categoria: 'Futbol',
+      fecha: '28 Oct 2025',
+      icono: 'football-outline',
+      imagenPortada: 'assets/news/sudamericana.jpg',
+      resumen:
+        'La Conmebol definió los premios: el título de la Copa Sudamericana tendrá un incentivo económico récord para el campeón.',
+      fuenteUrl:
+        'https://d10.ultimahora.com/el-campeon-de-la-copa-sudamericana-ganara-6-5-millones-de-dolares',
+    },
+    {
+      id: 206,
+      titulo: 'Confirmado: el Defensores albergará la final de la Sudamericana',
+      categoria: 'Futbol',
+      fecha: '30 Oct 2025',
+      icono: 'football-outline',
+      imagenPortada: 'assets/news/defensores.jpg',
+      resumen:
+        'El histórico estadio Defensores del Chaco será sede de la próxima final de la Copa Sudamericana, con trabajos de puesta a punto.',
+      fuenteUrl:
+        'https://d10.ultimahora.com/confirmado-el-defensores-albergara-la-final-de-la-sudamericana',
     },
   ];
 
