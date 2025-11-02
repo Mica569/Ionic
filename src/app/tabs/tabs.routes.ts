@@ -28,6 +28,14 @@ export const routes: Routes = [
           { path: 'articulo/:id', loadComponent: () => import('../tab3/articulo-detalle.page').then((m) => m.ArticuloDetallePage) },
         ],
       },
+      {
+        path: 'cuenta',
+        children: [
+          { path: '', loadComponent: () => import('../auth/account.page').then(m => m.AccountPage) },
+          { path: 'login', loadComponent: () => import('../auth/login.page').then(m => m.LoginPage) },
+          { path: 'registrar', loadComponent: () => import('../auth/register.page').then(m => m.RegisterPage) },
+        ],
+      },
       { path: '', redirectTo: '/tabs/home', pathMatch: 'full' },
     ],
   },
