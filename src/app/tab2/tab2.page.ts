@@ -106,7 +106,7 @@ export class Tab2Page implements AfterViewInit {
       
       const popupContent = `
         <div style="text-align: center; padding: 10px; min-width: 120px;">
-          <strong style="color: #3880ff; font-size: 14px;">${zona.departamento}</strong>
+          <strong style="color: #0f57bcff; font-size: 14px;">${zona.departamento}</strong>
           <div style="font-size: 20px; font-weight: bold; color: ${color}; margin: 8px 0;">
             ${zona.temperatura}°C
           </div>
@@ -133,7 +133,7 @@ export class Tab2Page implements AfterViewInit {
     if (mapaElement) {
       mapaElement.innerHTML = `
         <div style="text-align: center; padding: 50px; color: #666;">
-          <h3>🌡️ Mapa de Temperaturas de Paraguay</h3>
+          <h3> Mapa de Temperaturas de Paraguay</h3>
           <div style="margin: 20px;">
             ${this.datosTemperatura.map(zona => 
               `<strong>${zona.departamento}:</strong> ${zona.temperatura}°C<br>`
@@ -147,9 +147,9 @@ export class Tab2Page implements AfterViewInit {
 
   // Función pública para usar en el template
   getColorTemperatura(temp: number): string {
-    if (temp < 20) return '#3498db';
-    if (temp < 25) return '#2ecc71';
-    if (temp < 30) return '#f39c12';
+    if (temp < 20) return '#68afdeff';
+    if (temp < 25) return '#2db67bff';
+    if (temp < 30) return '#f36c12ff';
     return '#e74c3c';
   }
 }
