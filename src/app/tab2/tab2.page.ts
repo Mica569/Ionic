@@ -47,7 +47,7 @@ export class Tab2Page implements AfterViewInit {
 
   async ngAfterViewInit() {
     // Cargar Leaflet dinámicamente
-    await this.cargarLeaflet();
+    await this.cargarLeaflet(); 
     this.inicializarMapa();
   }
 
@@ -153,3 +153,5 @@ export class Tab2Page implements AfterViewInit {
     return '#e74c3c';
   }
 }
+
+// verificacion y correcion de commits
