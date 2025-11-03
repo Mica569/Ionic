@@ -147,9 +147,9 @@ export class Tab2Page implements AfterViewInit {
 
   // Función pública para usar en el template
   getColorTemperatura(temp: number): string {
-    if (temp < 20) return '#68afdeff';
-    if (temp < 25) return '#2db67bff';
-    if (temp < 30) return '#f36c12ff';
+    if (temp < 20) return '#3b8fc7ff';
+    if (temp < 25) return '#2e8f65ff';
+    if (temp < 30) return '#dd7937ff';
     return '#e74c3c';
   }
 }
