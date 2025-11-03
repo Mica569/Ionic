@@ -106,7 +106,7 @@ export class Tab2Page implements AfterViewInit {
       
       const popupContent = `
         <div style="text-align: center; padding: 10px; min-width: 120px;">
-          <strong style="color: #0f57bcff; font-size: 14px;">${zona.departamento}</strong>
+          <strong style="color: #5a636fff; font-size: 14px;">${zona.departamento}</strong>
           <div style="font-size: 20px; font-weight: bold; color: ${color}; margin: 8px 0;">
             ${zona.temperatura}°C
           </div>
