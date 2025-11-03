@@ -17,7 +17,7 @@ export const routes: Routes = [
         path: 'clima',
         children: [
           { path: '', loadComponent: () => import('../tab2/tab2.page').then((m) => m.Tab2Page) },
-         // { path: 'ciudad/:nombre', loadComponent: () => import('../tab2/ciudad-detalle.page').then((m) => m.CiudadDetallePage) },
+        
         ],
         
       },
