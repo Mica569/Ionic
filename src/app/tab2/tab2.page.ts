@@ -40,7 +40,9 @@ export class Tab2Page implements AfterViewInit {
     { departamento: 'Paraguarí', temperatura: 24, lat: -25.6333, lng: -57.1500, descripcion: 'Fresco' },
     { departamento: 'Alto Paraguay', temperatura: 32, lat: -20.5000, lng: -59.0000, descripcion: 'Muy caluroso' },
     { departamento: 'Concepción', temperatura: 29, lat: -23.4064, lng: -57.4344, descripcion: 'Caluroso' },
-    { departamento: 'San Pedro', temperatura: 26, lat: -24.1944, lng: -56.5613, descripcion: 'Templado' }
+    { departamento: 'Lambare', temperatura: 27, lat: -25.346394, lng: -57.624402, descripcion: 'Soleado' },
+    { departamento: 'San Lorenzo', temperatura: 30, lat: -25.342703, lng: -57.510501, descripcion: 'Soleado' },
+    { departamento: 'Encarnación', temperatura: 26, lat: -27.339793, lng: -55.863945, descripcion: 'Parcialmente despejado' }
   ];
 
   async ngAfterViewInit() {
@@ -104,7 +106,7 @@ export class Tab2Page implements AfterViewInit {
       
       const popupContent = `
         <div style="text-align: center; padding: 10px; min-width: 120px;">
-          <strong style="color: #3880ff; font-size: 14px;">${zona.departamento}</strong>
+          <strong style="color: #5a636fff; font-size: 14px;">${zona.departamento}</strong>
           <div style="font-size: 20px; font-weight: bold; color: ${color}; margin: 8px 0;">
             ${zona.temperatura}°C
           </div>
@@ -131,7 +133,7 @@ export class Tab2Page implements AfterViewInit {
     if (mapaElement) {
       mapaElement.innerHTML = `
         <div style="text-align: center; padding: 50px; color: #666;">
-          <h3>🌡️ Mapa de Temperaturas de Paraguay</h3>
+          <h3> Mapa de Temperaturas de Paraguay</h3>
           <div style="margin: 20px;">
             ${this.datosTemperatura.map(zona => 
               `<strong>${zona.departamento}:</strong> ${zona.temperatura}°C<br>`
@@ -145,9 +147,9 @@ export class Tab2Page implements AfterViewInit {
 
   // Función pública para usar en el template
   getColorTemperatura(temp: number): string {
-    if (temp < 20) return '#3498db';
-    if (temp < 25) return '#2ecc71';
-    if (temp < 30) return '#f39c12';
+    if (temp < 20) return '#68afdeff';
+    if (temp < 25) return '#2db67bff';
+    if (temp < 30) return '#f36c12ff';
     return '#e74c3c';
   }
 }
