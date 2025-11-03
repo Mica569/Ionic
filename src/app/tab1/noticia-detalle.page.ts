@@ -16,6 +16,7 @@ type Noticia = {
   selector: 'app-noticia-detalle',
   standalone: true,
   imports: [IonicModule, CommonModule, RouterModule],
+  styleUrls: ['./noticia-detalle.page.scss'],
   template: `
     <ion-header>
       <ion-toolbar color="tertiary">
@@ -27,16 +28,17 @@ type Noticia = {
     </ion-header>
     <ion-content class="ion-padding">
       <ng-container *ngIf="noticia; else notFound">
-        <ion-card>
-          <ion-img [src]="noticia.imagenPortada || 'assets/placeholder.png'" alt="{{ noticia.titulo }}"></ion-img>          
+        <ion-card class="detalle-noticia-card">
+          <ion-img [src]="noticia.imagenPortada || 'assets/placeholder.png'" alt="{{ noticia.titulo }}"></ion-img>
           <ion-card-header>
             <ion-card-title>{{ noticia.titulo }}</ion-card-title>
             <ion-card-subtitle>
               <ion-note color="medium">{{ noticia.fecha }}</ion-note>
             </ion-card-subtitle>
           </ion-card-header>
-          <ion-card-content class="ion-padding">
-            <p style="white-space: pre-wrap;">{{ noticia.contenido }}</p>
+          <ion-card-content>
+            <p class="resumen">{{ noticia.resumen }}</p>
+            <p class="contenido">{{ noticia.contenido }}</p>
           </ion-card-content>
         </ion-card>
       </ng-container>
