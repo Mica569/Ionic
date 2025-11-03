@@ -9,6 +9,7 @@ type NoticiaCard = {
   fecha: string;
   resumen: string;
   imagenPortada?: string;
+  contenido?: string;
 };
 
 @Component({
@@ -65,9 +66,30 @@ type NoticiaCard = {
 })
 export class Tab1Page {
   noticias: NoticiaCard[] = [
-    { id: 1, titulo: 'Nueva tecnología revoluciona el sector', fecha: 'Hoy', resumen: 'Un rápido vistazo a la innovación que está cambiando todo.', imagenPortada: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800' },
-    { id: 2, titulo: 'Mercados a la alza', fecha: 'Hoy', resumen: 'Las principales bolsas cierran con ganancias impulsadas por tech.', imagenPortada: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=800' },
-    { id: 3, titulo: 'Avances en salud', fecha: 'Ayer', resumen: 'Un tratamiento experimental muestra resultados prometedores.', imagenPortada: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800' },
+    { 
+      id: 1, 
+      titulo: 'Nueva tecnología revoluciona el sector', 
+      fecha: 'Hoy', 
+      resumen: 'Un rápido vistazo a la innovación que está cambiando todo.', 
+      imagenPortada: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800',
+      contenido: 'Una nueva startup ha desarrollado un procesador cuántico a temperatura ambiente, un hito que podría acelerar la computación de alto rendimiento y la inteligencia artificial. Los expertos creen que esto podría resolver problemas complejos en medicina, finanzas y logística en una fracción del tiempo actual.'
+    },
+    { 
+      id: 2, 
+      titulo: 'Mercados a la alza', 
+      fecha: 'Hoy', 
+      resumen: 'Las principales bolsas cierran con ganancias impulsadas por tech.', 
+      imagenPortada: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=800',
+      contenido: 'El índice NASDAQ alcanzó un nuevo récord histórico, impulsado por los sólidos informes de ganancias de las principales empresas tecnológicas. Los inversores se muestran optimistas sobre el futuro del sector, a pesar de las preocupaciones sobre la inflación y la política monetaria.'
+    },
+    { 
+      id: 3, 
+      titulo: 'Avances en salud', 
+      fecha: 'Ayer', 
+      resumen: 'Un tratamiento experimental muestra resultados prometedores.', 
+      imagenPortada: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800',
+      contenido: 'Investigadores de la Universidad de Stanford han publicado un estudio sobre una nueva terapia génica que ha demostrado ser eficaz en la reversión de enfermedades neurodegenerativas en ratones. Aunque todavía está en fase experimental, abre una nueva puerta de esperanza para millones de pacientes.'
+    },
   ];
 
   cotizaciones = [
