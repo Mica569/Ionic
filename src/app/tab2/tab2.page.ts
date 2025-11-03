@@ -25,6 +25,9 @@ export class Tab2Page implements AfterViewInit {
     { nombre: 'Capiata', temp: 24, descripcion: 'Mayormente nublado' },
     { nombre: 'San Antonio', temp: 30, descripcion: 'Soleado' },
     { nombre: 'Fernando de la Mora', temp: 26, descripcion: 'Parcialmente nublado' },
+    { nombre: 'San Lorenzo', temp: 30, descripcion: 'Soleado' },
+    { nombre: 'Encarnación', temp: 26, descripcion: 'Parcialmente despejado' },
+    { nombre: 'Lambare', temp: 27, descripcion: 'Soleado' },
   ];
 
   // Datos para el mapa
