@@ -1,0 +1,63 @@
+:host {
+  --ion-card-border-radius: 12px;
+}
+
+.detalle-articulo-card {
+  /* Rounded image corners and centered readable width */
+  overflow: hidden;
+  max-width: 920px;
+  margin-inline: auto;
+
+  ion-img {
+    height: 220px; /* smaller header image */
+    width: 100%;
+    object-fit: cover;
+  }
+
+  ion-card-header {
+    padding-bottom: 8px;
+  }
+
+  ion-card-title {
+    font-size: 1.5rem; /* larger and more legible */
+    line-height: 1.25;
+    margin-bottom: 2px;
+  }
+
+  ion-card-subtitle {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  ion-card-content {
+    font-size: 1.14rem; /* larger body text */
+    line-height: 1.75;  /* more spacing */
+    color: var(--ion-text-color);
+  }
+
+  ion-card-content p + p {
+    margin-top: 14px; /* space between paragraphs */
+  }
+
+  .resumen {
+    color: var(--ion-color-medium);
+    font-weight: 500;
+  }
+
+  .contenido {
+    white-space: pre-line; /* keep line breaks */
+  }
+}
+
+@media (min-width: 768px) {
+  .detalle-articulo-card ion-img {
+    height: 280px;
+  }
+  .detalle-articulo-card ion-card-content {
+    font-size: 1.2rem; /* even more readable on medium+ screens */
+    line-height: 1.8;
+  }
+}
+
