@@ -42,8 +42,8 @@ export class Tab2Page implements AfterViewInit {
     { departamento: 'Concepción', temperatura: 29, lat: -23.4064, lng: -57.4344, descripcion: 'Caluroso' },
     { departamento: 'Lambare', temperatura: 27, lat: -25.346394, lng: -57.624402, descripcion: 'Soleado' },
     { departamento: 'San Lorenzo', temperatura: 30, lat: -25.342703, lng: -57.510501, descripcion: 'Soleado' },
-    { departamento: 'Encarnación', temperatura: 26, lat: -27.339793, lng: -55.863945, descripcion: 'Parcialmente despejado' }
-    { departamento: 'Fernando de la Mora', temperatura: 26, lat: -25.324696, lng: -57.550634, descripcion: 'Parcialmente soleado' },
+    { departamento: 'Encarnación', temperatura: 26, lat: -27.339793, lng: -55.863945, descripcion: 'Parcialmente despejado' },
+    { departamento: 'Fernando de la Mora', temperatura: 26, lat: -25.324696, lng: -57.550634, descripcion: 'Parcialmente soleado' }
   ];
 
   async ngAfterViewInit() {
