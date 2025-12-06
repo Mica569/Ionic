@@ -17,18 +17,33 @@ import { RouterModule } from '@angular/router';
 export class Tab2Page implements AfterViewInit {
   
   // Array de ciudades para la lista
-  ciudades = [
-    { nombre: 'Asunción', temp: 22, descripcion: 'Parcialmente nublado' },
-    { nombre: 'CDE', temp: 19, descripcion: 'Soleado' },
-    { nombre: 'Boquerón', temp: 28, descripcion: 'Vientos moderados' },
-    { nombre: 'J. Augusto Saldívar', temp: 26, descripcion: 'Despejada' },
-    { nombre: 'Capiata', temp: 24, descripcion: 'Mayormente nublado' },
-    { nombre: 'San Antonio', temp: 30, descripcion: 'Soleado' },
-    { nombre: 'Fernando de la Mora', temp: 26, descripcion: 'Parcialmente nublado' },
-    { nombre: 'San Lorenzo', temp: 30, descripcion: 'Soleado' },
-    { nombre: 'Encarnación', temp: 26, descripcion: 'Parcialmente despejado' },
-    { nombre: 'Lambare', temp: 27, descripcion: 'Soleado' },
+  // Array de ciudades para la lista
+  allCiudades = [
+    { nombre: 'Asunción', temp: 22, descripcion: 'Parcialmente nublado', humidity: 65, wind: 12 },
+    { nombre: 'CDE', temp: 19, descripcion: 'Soleado', humidity: 55, wind: 15 },
+    { nombre: 'Boquerón', temp: 28, descripcion: 'Vientos moderados', humidity: 40, wind: 30 },
+    { nombre: 'J. Augusto Saldívar', temp: 26, descripcion: 'Despejada', humidity: 60, wind: 10 },
+    { nombre: 'Capiata', temp: 24, descripcion: 'Mayormente nublado', humidity: 70, wind: 8 },
+    { nombre: 'San Antonio', temp: 30, descripcion: 'Soleado', humidity: 50, wind: 14 },
+    { nombre: 'Fernando de la Mora', temp: 26, descripcion: 'Parcialmente nublado', humidity: 62, wind: 11 },
+    { nombre: 'San Lorenzo', temp: 30, descripcion: 'Soleado', humidity: 52, wind: 13 },
+    { nombre: 'Encarnación', temp: 26, descripcion: 'Parcialmente despejado', humidity: 68, wind: 16 },
+    { nombre: 'Lambare', temp: 27, descripcion: 'Soleado', humidity: 58, wind: 10 },
   ];
+
+  ciudades = [...this.allCiudades];
+
+  handleRefresh(event: any) {
+    setTimeout(() => {
+      this.ciudades = [...this.allCiudades];
+      event.target.complete();
+    }, 2000);
+  }
+
+  filterCiudades(event: any) {
+    const query = event.target.value.toLowerCase();
+    this.ciudades = this.allCiudades.filter(c => c.nombre.toLowerCase().indexOf(query) > -1);
+  }
 
   // Datos para el mapa
   private map: any;

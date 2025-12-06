@@ -1,57 +1,83 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="secondary">
-    <ion-title>Clima</ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="background">
+    <ion-title class="fw-bold">Clima</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary">
+        <ion-icon slot="icon-only" name="options-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="background">
+    <ion-searchbar placeholder="Buscar ciudad..." (ionInput)="filterCiudades($event)" mode="ios" class="custom-searchbar"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content [fullscreen]="true" color="background">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
-   <!-- Sección de lista de ciudades - TU DISEÑO ORIGINAL -->
-  <div class="lista-ciudades-section">
-    <h3>Ciudades de Paraguay</h3>
-    
-    <ion-list>
-      <ion-item *ngFor="let c of ciudades">
-        <ion-label>
-          <h3>{{ c.nombre }}</h3>
-          <p>{{ c.descripcion }}</p>
-        </ion-label>
-        <ion-badge slot="end" color="tertiary">{{ c.temp }}°C</ion-badge>
-      </ion-item>
-    </ion-list>
-  </div>
-  
-  <!-- Sección del mapa -->
-  <div class="mapa-section">
-    <div class="mapa-container">
-      <h3>Mapa de Temperaturas - Paraguay</h3>
-      <p class="descripcion-mapa">Haz clic en los marcadores para ver los detalles del clima por departamento</p>
-      
-      <!-- Contenedor del mapa -->
-      <div id="mapaClima" class="mapa-leaflet"></div>
-      
-      <!-- Leyenda de temperaturas -->
-      <div class="leyenda-temperaturas">
-        <div class="leyenda-item">
-          <span class="color-leyenda" style="background-color: #39a1e6;"></span>
-          <span>Fresco (< 20°C)</span>
+  <!-- Hero Section -->
+  <div class="ion-padding-start ion-padding-end ion-padding-bottom">
+    <ion-card class="weather-hero-card">
+      <div class="hero-content">
+        <div class="location-badge">
+          <ion-icon name="location"></ion-icon>
+          <span>Ubicación Actual</span>
         </div>
-        <div class="leyenda-item">
-          <span class="color-leyenda" style="background-color: #239a55;"></span>
-          <span>Templado (20-25°C)</span>
+        <div class="weather-main">
+          <h1>28°</h1>
+          <div class="weather-icon">
+             <ion-icon name="sunny" style="font-size: 4rem; color: #ffd700;"></ion-icon>
+          </div>
         </div>
-        <div class="leyenda-item">
-          <span class="color-leyenda" style="background-color: #e2a138;"></span>
-          <span>Cálido (25-30°C)</span>
-        </div>
-        <div class="leyenda-item">
-          <span class="color-leyenda" style="background-color: #e74c3c;"></span>
-          <span>Caluroso (> 30°C)</span>
+        <h2 class="city-name">San Lorenzo</h2>
+        <p class="weather-desc">Cielo despejado</p>
+        
+        <div class="weather-details">
+          <div class="detail-item">
+            <ion-icon name="water-outline"></ion-icon>
+            <span>45%</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="navigate-outline"></ion-icon>
+            <span>12 km/h</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="rainy-outline"></ion-icon>
+            <span>0%</span>
+          </div>
         </div>
       </div>
-    </div>
+    </ion-card>
   </div>
 
- 
+  <div class="ion-padding-start ion-padding-end">
+    <h3 class="section-title">Otras Ciudades</h3>
+  </div>
+
+  <ion-grid class="ion-no-padding">
+    <ion-row class="ion-padding-start ion-padding-end">
+      <ion-col size="6" *ngFor="let c of ciudades">
+        <ion-card class="mini-weather-card" [routerLink]="['/tabs/clima/ciudad', c.nombre]">
+          <div class="mini-header">
+            <h4>{{ c.nombre }}</h4>
+            <ion-icon [name]="c.temp > 25 ? 'sunny' : 'cloudy'" [color]="c.temp > 25 ? 'warning' : 'medium'"></ion-icon>
+          </div>
+          <div class="mini-temp">
+            {{ c.temp }}°
+          </div>
+          <p class="mini-desc">{{ c.descripcion }}</p>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <div class="ion-padding">
+    <h3 class="section-title">Mapa Térmico</h3>
+    <div class="map-wrapper">
+       <div id="mapaClima" class="mapa-leaflet"></div>
+    </div>
+  </div>
 
 </ion-content>
