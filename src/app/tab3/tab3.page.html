@@ -1,17 +1,76 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="background">
+    <ion-title class="fw-bold">Deportes</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary">
+        <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" color="background">
+  <!-- Live Score Ticker -->
+  <div class="live-scores-container ion-padding-start ion-padding-end ion-padding-bottom">
+    <div class="live-score-card" *ngFor="let match of liveMatches">
+      <div class="match-time">{{ match.time }}</div>
+      <div class="match-teams">
+        <div class="team">
+          <span class="team-name">{{ match.home }}</span>
+          <span class="team-score">{{ match.score.split(' - ')[0] }}</span>
+        </div>
+        <div class="team">
+          <span class="team-name">{{ match.away }}</span>
+          <span class="team-score">{{ match.score.split(' - ')[1] }}</span>
+        </div>
+      </div>
+      <div class="live-indicator" *ngIf="match.time !== 'FT'">
+        <div class="pulse"></div>
+        VIVO
+      </div>
+    </div>
+  </div>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <div class="ion-padding-start ion-padding-end">
+    <ion-segment [(ngModel)]="filtro" value="Todos" class="custom-segment" mode="ios">
+      <ion-segment-button value="Todos">
+        <ion-label>Todos</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Futbol">
+        <ion-label>Fútbol</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Motor">
+        <ion-label>Motor</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div class="ion-padding" *ngIf="articulosFiltrados.length > 0">
+    <h3 class="section-title">Destacado</h3>
+    <ion-card class="featured-match-card" [routerLink]="['/tabs/deportes/articulo', articulosFiltrados[0].id]">
+      <img [src]="articulosFiltrados[0].imagenPortada" />
+      <div class="match-overlay">
+        <ion-badge color="primary">{{ articulosFiltrados[0].categoria }}</ion-badge>
+        <h2>{{ articulosFiltrados[0].titulo }}</h2>
+      </div>
+    </ion-card>
+  </div>
+
+  <ion-list class="news-list ion-padding-end">
+    <ng-container *ngFor="let a of articulosFiltrados; let i = index">
+      <ion-item *ngIf="i > 0" lines="none" class="news-item" [routerLink]="['/tabs/deportes/articulo', a.id]" detail="false">
+        <div slot="start" class="news-thumb">
+          <img [src]="a.imagenPortada" />
+        </div>
+        <ion-label>
+          <div class="news-meta">
+            <span class="category-text" [class.motor]="a.categoria === 'Motor'">{{ a.categoria }}</span>
+            <span class="date-text">{{ a.fecha }}</span>
+          </div>
+          <h3 class="news-title">{{ a.titulo }}</h3>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+
 </ion-content>

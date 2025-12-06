@@ -20,59 +20,20 @@ type ArticuloCard = {
   selector: 'app-tab3',
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule, RouterModule],
-  template: `
-    <ion-header>
-      <ion-toolbar color="tertiary">
-        <ion-title>Deportes</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding">
-      <ion-segment [(ngModel)]="filtro" value="Todos" class="segment-categorias">
-        <ion-segment-button value="Todos">
-          <ion-label>Todos</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="Futbol">
-          <ion-label>Futbol</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="Motor">
-          <ion-label>Motor</ion-label>
-        </ion-segment-button>
-      </ion-segment>
-
-      <ion-grid fixed>
-        <ion-row>
-          <ion-col size="12" sizeMd="6" sizeLg="4" *ngFor="let a of articulosFiltrados">
-            <ion-card class="articulo-card" [routerLink]="['/tabs/deportes/articulo', a.id]" routerDirection="forward">
-              <ion-img [src]="a.imagenPortada || a.imagen" alt="{{ a.categoria }}"></ion-img>
-              <ion-card-header>
-                <ion-card-title>{{ a.titulo }}</ion-card-title>
-                <ion-card-subtitle>
-                  <ion-chip color="tertiary" outline>
-                    <ion-icon [name]="a.icono"></ion-icon>
-                    <ion-label>{{ a.categoria }}</ion-label>
-                  </ion-chip>
-                  <ion-note color="medium">{{ a.fecha }}</ion-note>
-                </ion-card-subtitle>
-              </ion-card-header>
-              <ion-card-content>
-                <p>{{ a.resumen }}</p>
-                <div class="card-actions">
-                  <ion-button size="small" fill="clear" color="primary" [routerLink]="['/tabs/deportes/articulo', a.id]" (click)="$event.stopPropagation()">
-                    Ver detalle
-                    <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
-                  </ion-button>
-                </div>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-content>
-  `,
+  templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss'],
 })
 export class Tab3Page {
   filtro = 'Todos';
+  
+  // Datos para el ticker de partidos en vivo
+  liveMatches = [
+    { home: 'Olimpia', away: 'Cerro', score: '1 - 1', time: '75\'' },
+    { home: 'Libertad', away: 'Guaraní', score: '2 - 0', time: 'FT' },
+    { home: 'Luqueño', away: 'Nacional', score: '0 - 0', time: '32\'' },
+    { home: 'Tacuary', away: 'Ameliano', score: '1 - 2', time: '88\'' },
+  ];
+
   articulos: ArticuloCard[] = [
     {
       id: 201,
@@ -83,8 +44,7 @@ export class Tab3Page {
       imagenPortada: 'assets/news/superclasico.jpg',
       resumen:
         'Un clásico intenso con tramos de alta presión y opciones claras. El resultado define posiciones en la recta final del torneo.',
-      fuenteUrl:
-        'https://www.abc.com.py/deportes/futbol/superclasico/2025/10/19/cerro-porteno-vs-olimpia-ultimo-superclasico-del-ano-en-vivo/',
+
     },
     {
       id: 202,
@@ -95,8 +55,7 @@ export class Tab3Page {
       imagenPortada: 'assets/news/transchaco.jpg',
       resumen:
         'La edición 50 del Transchaco celebró a sus ganadores con emoción y homenajes a figuras históricas del rally nacional.',
-      fuenteUrl:
-        'https://www.abc.com.py/deportes/motor/2025/10/31/50-transchaco-rally-emotiva-noche-de-campeones/',
+ 
     },
     {
       id: 203,
@@ -107,8 +66,7 @@ export class Tab3Page {
       imagenPortada: 'assets/news/duerksen.jpg',
       resumen:
         'El piloto paraguayo da el salto a una escudería con proyección, abriendo nuevas expectativas de cara a la próxima temporada.',
-      fuenteUrl:
-        'https://www.abc.com.py/deportes/motor/2025/10/22/joshua-duerksen-es-nuevo-piloto-de-invicta-racing-campeon-de-la-formula-2/',
+   
     },
     {
       id: 204,
@@ -119,8 +77,6 @@ export class Tab3Page {
       imagenPortada: 'assets/news/piloto.jpg',
       resumen:
         'El múltiple campeón nacional repasó su trayectoria y el significado del TCR50, una cita histórica para el automovilismo local.',
-      fuenteUrl:
-        'https://www.abc.com.py/deportes/motor/2025/10/27/tcr50-gustavo-saba-rodriguez-un-largo-camino-recorrido/',
     },
     {
       id: 205,
@@ -131,8 +87,7 @@ export class Tab3Page {
       imagenPortada: 'assets/news/sudamericana.jpg',
       resumen:
         'La Conmebol definió los premios: el título de la Copa Sudamericana tendrá un incentivo económico récord para el campeón.',
-      fuenteUrl:
-        'https://d10.ultimahora.com/el-campeon-de-la-copa-sudamericana-ganara-6-5-millones-de-dolares',
+
     },
     {
       id: 206,
@@ -143,8 +98,6 @@ export class Tab3Page {
       imagenPortada: 'assets/news/defensores.jpg',
       resumen:
         'El histórico estadio Defensores del Chaco será sede de la próxima final de la Copa Sudamericana, con trabajos de puesta a punto.',
-      fuenteUrl:
-        'https://d10.ultimahora.com/confirmado-el-defensores-albergara-la-final-de-la-sudamericana',
     },
   ];
 
